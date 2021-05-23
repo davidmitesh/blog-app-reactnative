@@ -1,21 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { createAppContainer } from 'react-navigation';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import { createStackNavigator } from 'react-navigation-stack';
+import IndexScreen from './src/screens/IndexScreen'
+import { Provider } from './src/context/BlogContext';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+const navigator=createStackNavigator({
+  Index:IndexScreen
+},{
+  initialRouteName:'Index',
+  defaultNavigationOptions:{
+    title:'Blogs'
+  }
 });
+
+const App= createAppContainer(navigator)
+  //any time we want to make use of JSX we have to import react library.
+  export default()=>{
+    return <Provider>
+            <App/>
+    </Provider>
+    
+  }

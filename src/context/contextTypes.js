@@ -1,0 +1,2 @@
+export const ADD_BLOG_POST="ADD_BLOG_POST"
+export const DELETE_BLOG_POST="DELETE_BLOG_POST"
